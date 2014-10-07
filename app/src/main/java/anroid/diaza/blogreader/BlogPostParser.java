@@ -1,8 +1,11 @@
 package anroid.diaza.blogreader;
 
+import android.util.Log;
+
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
@@ -25,6 +28,16 @@ public class BlogPostParser {
         StringBuilder builder = new StringBuilder();
         JSONObject jsonObject = null;
 
+        String line;
+
+        try {
+            while ((line = reader.readLine()) != null) {
+
+            }
+        }
+        catch (IOException error){
+            Log.e("BlogPOstParser", "IOException: " + error);
+        }
         return jsonObject;
     }
 }
