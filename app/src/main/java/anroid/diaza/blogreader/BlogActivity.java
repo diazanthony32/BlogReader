@@ -18,14 +18,6 @@ public class BlogActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blog);
 
-        String[] arrayStrings = new String[] {
-
-                "Blog Post 1",
-                "Blog Post 2",
-                "Blog Post 3",
-                "Blog Post 4"
-        };
-
         // connecting to the ids in the activity
         progressBar = (ProgressBar)findViewById(R.id.progressBar);
         listView = (ListView)findViewById(R.id.listView);
@@ -33,11 +25,7 @@ public class BlogActivity extends Activity {
         // If listView is Empty it sets the view to empty
         listView.setEmptyView(progressBar);
 
-        // makes it so our array is able to be used in our listView
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayStrings);
-        listView.setAdapter(adapter);
-
-        new BlogPostTask().execute();
+        new BlogPostTask().execute(this);
     }
 
 }

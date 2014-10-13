@@ -3,6 +3,8 @@ package anroid.diaza.blogreader;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import org.json.JSONObject;
 
@@ -12,8 +14,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class BlogPostTask extends AsyncTask <Activity, Void, JSONObject>{
+    private Activity activity;
+
     @Override
     protected JSONObject doInBackground(Activity... activities) {
+        activity = activities[0];
         JSONObject jsonObject = null;
 
         try {
@@ -40,5 +45,9 @@ public class BlogPostTask extends AsyncTask <Activity, Void, JSONObject>{
     @Override
     protected void onPostExecute(JSONObject jsonObject) {
         super.onPostExecute(jsonObject);
+        ListView listView = (ListView)activity.findViewById(R.id.listView);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(activity, android.R.layout.simple_list_item_1, arrayStrings);
+        listView.setAdapter(adapter);
     }
 }

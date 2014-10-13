@@ -2,6 +2,7 @@ package anroid.diaza.blogreader;
 
 import android.util.Log;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -17,7 +18,7 @@ public class BlogPostParser {
     public ArrayList<BlogPost> posts;
 
     private  BlogPostParser() {
-
+        posts = new ArrayList<BlogPost>();
     }
 
     public static BlogPostParser get() {
@@ -52,6 +53,21 @@ public class BlogPostParser {
     }
 
     public void readFeed(JSONObject jsonObject){
-        
-    }
+        try {
+            JSONArray jsonPosts = jsonObject.getJSONArray("posts");
+
+            for (int index = 0; index <jsonPosts.length(); index ++){
+               JSONObject post = jsonPosts.getJSONObject(index);
+
+                String title = post.getString("title");
+                String url = post.getString("url");
+
+                BlogPost blogPost = new BlogPost(title,url);
+                posts.add(blogPost);
+            }
+        }
+        catch (JSONException error){
+            Log.e("BlogPOstParser", "JSONException: " + error);
+        }
+        }
 }
