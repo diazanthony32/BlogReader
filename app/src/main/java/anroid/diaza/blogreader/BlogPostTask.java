@@ -37,7 +37,7 @@ public class BlogPostTask extends AsyncTask <Activity, Void, JSONObject>{
             Log.e("BlogPostTag", "Malformed URL: " + error);
         }
         catch (IOException error){
-            Log.e("BlogPostTask", "IO Exceptionn: " + error);
+            Log.e("BlogPostTask", "IO Exception: " + error);
         }
         return jsonObject;
     }
@@ -45,9 +45,10 @@ public class BlogPostTask extends AsyncTask <Activity, Void, JSONObject>{
     @Override
     protected void onPostExecute(JSONObject jsonObject) {
         super.onPostExecute(jsonObject);
+        BlogPostParser.get().readFeed(jsonObject);
         ListView listView = (ListView)activity.findViewById(R.id.listView);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(activity, android.R.layout.simple_list_item_1, arrayStrings);
+        ArrayAdapter<BlogPost> adapter = new ArrayAdapter<BlogPost>(activity, android.R.layout.simple_list_item_1, BlogPostParser.get().posts);
         listView.setAdapter(adapter);
     }
 }
