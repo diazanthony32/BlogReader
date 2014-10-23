@@ -32,6 +32,7 @@ public class BlogActivity extends Activity {
         // If listView is Empty it sets the view to empty
         listView.setEmptyView(progressBar);
 
+        //waits for item on the list to be clicked
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -44,6 +45,7 @@ public class BlogActivity extends Activity {
                 startActivity(intent);
             }
         });
+
 
         new BlogPostTask().execute(this);
     }

@@ -3,7 +3,6 @@ package anroid.diaza.blogreader;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import org.json.JSONObject;
@@ -21,6 +20,7 @@ public class BlogPostTask extends AsyncTask <Activity, Void, JSONObject>{
         activity = activities[0];
         JSONObject jsonObject = null;
 
+        //tries to connect to the url provided and sends errors if something is wrong
         try {
             URL blogFeedUrl = new URL("http://blog.teamtreehouse.com/api/get_recent_summary/?count=20");
 
@@ -42,6 +42,7 @@ public class BlogPostTask extends AsyncTask <Activity, Void, JSONObject>{
         return jsonObject;
     }
 
+    //
     @Override
     protected void onPostExecute(JSONObject jsonObject) {
         super.onPostExecute(jsonObject);
