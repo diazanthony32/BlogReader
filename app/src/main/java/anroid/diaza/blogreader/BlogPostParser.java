@@ -29,6 +29,7 @@ public class BlogPostParser {
         return parser;
     }
 
+    //reads the lines one by one
     public JSONObject parse(InputStream inputStream) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         StringBuilder builder = new StringBuilder();

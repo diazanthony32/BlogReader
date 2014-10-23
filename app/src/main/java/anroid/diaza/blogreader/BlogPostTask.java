@@ -42,7 +42,7 @@ public class BlogPostTask extends AsyncTask <Activity, Void, JSONObject>{
         return jsonObject;
     }
 
-    //
+    //sets the listview adapter
     @Override
     protected void onPostExecute(JSONObject jsonObject) {
         super.onPostExecute(jsonObject);
