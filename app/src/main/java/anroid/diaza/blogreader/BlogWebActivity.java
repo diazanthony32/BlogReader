@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.webkit.WebView;
 
-//once object is clicked it is sent to another page to show the url
+//once object is clicked it is sent to another page
 public class BlogWebActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
