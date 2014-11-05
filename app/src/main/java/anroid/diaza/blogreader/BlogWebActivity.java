@@ -26,10 +26,13 @@ public class BlogWebActivity extends Activity{
         webView.loadUrl(blogUri.toString());
 
         webView.setWebViewClient(new WebViewClient() {
+
+        //adds the progressbar when loading and removes when done
+
             @Override
             public void onPageFinished(WebView webview, String url) {
-
                 progressBarWeb.setVisibility(View.GONE);
+
             }
         });
     }
