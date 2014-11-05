@@ -3,7 +3,7 @@ package anroid.diaza.blogreader;
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.ListView;
+import android.widget.GridView;
 
 import org.json.JSONObject;
 
@@ -42,14 +42,14 @@ public class BlogPostTask extends AsyncTask <Activity, Void, JSONObject>{
         return jsonObject;
     }
 
-    //sets the listview adapter
+    //sets the gridview adapter
     @Override
     protected void onPostExecute(JSONObject jsonObject) {
         super.onPostExecute(jsonObject);
         BlogPostParser.get().readFeed(jsonObject);
-        ListView listView = (ListView)activity.findViewById(R.id.listView);
+        GridView gridView = (GridView)activity.findViewById(R.id.gridView);
 
         BlogPostAdapter adapter = new BlogPostAdapter(activity, BlogPostParser.get().posts);
-        listView.setAdapter(adapter);
+        gridView.setAdapter(adapter);
     }
 }

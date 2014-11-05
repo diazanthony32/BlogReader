@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ListView;
+import android.widget.GridView;
 import android.widget.ProgressBar;
 
 
@@ -15,7 +15,7 @@ public class BlogActivity extends Activity {
 
     // making an instance of the type of variable and naming them
     protected ProgressBar progressBar;
-    protected ListView listView;
+    protected GridView gridView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,13 +24,13 @@ public class BlogActivity extends Activity {
 
         // connecting to the ids in the activity
         progressBar = (ProgressBar)findViewById(R.id.progressBar);
-        listView = (ListView)findViewById(R.id.listView);
+        gridView = (GridView)findViewById(R.id.gridView);
 
-        // If listView is Empty it sets the view to empty
-        listView.setEmptyView(progressBar);
+        // If gridView is Empty it sets the view to empty
+        gridView.setEmptyView(progressBar);
 
         //waits for item on the list to be clicked
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
