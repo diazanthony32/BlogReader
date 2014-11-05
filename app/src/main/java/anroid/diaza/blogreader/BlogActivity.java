@@ -7,11 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
-
-import java.net.URI;
 
 
 public class BlogActivity extends Activity {
@@ -36,6 +33,7 @@ public class BlogActivity extends Activity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 Log.i("BlogActivity", "Title: " + BlogPostParser.get().posts.get(position).title);
 
                 Intent intent = new Intent(getApplicationContext(), BlogWebActivity.class);

@@ -7,11 +7,11 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/treehouse"
-        android:label="treehouse"
+        android:label="Treehouse News"
         android:theme="@style/AppTheme" >
         <activity
             android:name=".BlogActivity"
-            android:label="treehouse" >
+            android:label="Treehouse News" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
