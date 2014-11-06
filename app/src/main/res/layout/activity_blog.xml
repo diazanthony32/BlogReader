@@ -8,6 +8,13 @@
         android:id="@+id/gridView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:columnWidth="180dp"
+        android:numColumns="2"
+        android:verticalSpacing="10dp"
+        android:horizontalSpacing="10dp"
+        android:padding="10sp"
+        android:stretchMode="columnWidth"
+        android:gravity="center"
     />
 
     <ProgressBar
